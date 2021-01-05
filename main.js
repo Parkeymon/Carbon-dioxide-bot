@@ -13,11 +13,19 @@ for(const file of commandFiles){
     client.commands.set(command.name, command);
 }
 
-
 //Log bot is ready and set status.
 client.on('ready', () => {
     client.user.setActivity('Made by Parkeymon', { type: 'PLAYING'});
     console.log('Bot online.');
+});
+
+//Join message
+client.on('guildMemberAdd', member => {
+    member.send('Welcome! Before you can use and talk in the server, you must be verified.');
+    const welcomeEmbed = new Discord.MessageEmbed().setColor('#ff1100')
+    .setTitle('How to get verified :white_check_mark:')
+    .setDescription(`Please send \`$verify\` to the bots DMs`)
+    member.send(welcomeEmbed)
 });
 
 //Command handler. I think? lmao

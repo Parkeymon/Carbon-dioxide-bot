@@ -6,7 +6,8 @@ module.exports = {
             'I sniff kids',
             'I will build a great wall',
             'Coronavirus does not exist',
-            'GET THOSE LIGHTS OFF!'
+            'GET THOSE LIGHTS OFF!',
+            'China Virus.'
         ]
         var sayquote = Math.floor(Math.random() * quotes.length);
         message.channel.send(quotes[sayquote])
