@@ -16,7 +16,10 @@ module.exports = {
             {name: 'schoologysux', value: 'Fixes your schoology problems.', inline: true},
             {name: 'politicalquote (WIP)', value: 'Sends a stupid political quote.', inline: true},
             {name: 'ghostecho', value: 'Echos message send and then makes yours dissapear.', inline: true},
-            {name: '8ball <question>', value: 'Ask the magic 8 ball a question.', inline: true}
+            {name: '8ball <question>', value: 'Ask the magic 8 ball a question.', inline: true},
+            {name: 'invite', value: 'Gives you the server invite to invite other people.', inline: true},
+            {name: 'spellcheck', value: 'Tells the person to learn how to spell.', inline: true},
+            {name: 'poll <question>', value: 'Creates a poll.', inline: true}
         )
         message.channel.send(helpEmbed)
     }

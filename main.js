@@ -41,7 +41,7 @@ client.on('message', message => {
     }
     catch(error){
         console.error(error);
-        message.channel.send('An error occored. Dont @ me.')
+        message.channel.send('An error occured. Dont @ me.')
     }
 });
 
