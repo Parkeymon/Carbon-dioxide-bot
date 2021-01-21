@@ -1,2 +1,2 @@
-# Nut bot
+# bot for carbon dioxide
 general purpose
