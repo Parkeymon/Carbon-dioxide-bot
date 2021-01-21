@@ -10,8 +10,8 @@ module.exports = {
         } else{
             const howCringe1 = new Discord.MessageEmbed()
             .setTitle('Cringe-O-Meter')
-            .addFields({name:`${args[0]} is:`, value: `${Math.floor(Math.random() * 100)}% Cringe`})
-            
+            .addFields({name:`The cringe-o-meter says..`, value: `${args[0]} is ${Math.floor(Math.random() * 100)}% Cringe.`})
+
             message.channel.send(howCringe1)
         }
     }
