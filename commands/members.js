@@ -5,6 +5,7 @@ module.exports = {
     description: "counts the members",
     execute(message, args, Discord, client){
         const { guild } = message
+        console.log(guild)
         const embed1 = new Discord.MessageEmbed()
         .setColor('#23cc72')
         .setTitle(`Co2024 Gamer Count Machine.`)

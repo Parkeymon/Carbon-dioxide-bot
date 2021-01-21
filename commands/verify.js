@@ -13,7 +13,7 @@ module.exports = {
       
             let memberRole = guild.roles.cache.get('667959578948010004');    
             const member = (message.author.id);
-            let memberTarget = guild.members.cache.get(member.id);
+            let memberTarget = await guild.members.fetch(member);
 
         //Asks user to put name
         const nameEmbed = new Discord.MessageEmbed()
@@ -39,8 +39,8 @@ module.exports = {
                 message.react('✅')
                 message.react('⛔')
 
-                member.setNickname(`${message.author.username} + (${msg.first().content})`)
-                .then(console.log('Nickname Changed.'));
+                //member.setNickname(`${message.author.username} + (${msg.first().content})`)
+                //.then(console.log('Nickname Changed.'));
 
                 await message.react('✅')
                 const filter = (reaction, user) => {
@@ -56,7 +56,7 @@ module.exports = {
                     } else {
                         console.log('SOMTHING DID SOMETHING')
                         message.channel.send('✅ | User Verified!')
-                        message.guild.roles.add(memberRole)
+                        memberTarget.roles.add(memberRole)
                         reactCollector.stop()
                     }
                 })
