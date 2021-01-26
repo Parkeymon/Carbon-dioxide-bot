@@ -38,13 +38,21 @@ module.exports = {
         } */
 
 
-        if(message.author.id === 559173524455948290){
+        if(message.author.id === '559173524455948290'){
             const arjunpp = new Discord.MessageEmbed()
             .setTitle('PP Size Calculator')
             .addFields({name: 'Size of your PP:', value: `8D`})
 
             message.channel.send(arjunpp)
         }
+        else if(args[0].toLowerCase() == 'arjun'){
+            const arjunpp = new Discord.MessageEmbed()
+            .setTitle('PP Size Calculator')
+            .addFields({name: 'Size of arjuns PP:', value: `8D`})
+
+            message.channel.send(arjunpp)
+        }
+
         else if(!args.length){
             const yourpp = new Discord.MessageEmbed()
             .setTitle('PP Size Calculator')
