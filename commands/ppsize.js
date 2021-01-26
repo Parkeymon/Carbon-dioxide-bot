@@ -41,7 +41,7 @@ module.exports = {
         if(message.author.id === 559173524455948290){
             const arjunpp = new Discord.MessageEmbed()
             .setTitle('PP Size Calculator')
-            .addFields({name: 'Size of your PP:', value: `${sizes[ppsize]}`})
+            .addFields({name: 'Size of your PP:', value: `8D`})
 
             message.channel.send(arjunpp)
         }
