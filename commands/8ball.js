@@ -6,7 +6,11 @@ module.exports = {
             'It seems so.',
             'Signs point to no.',
             'Signs point to yes.',
-            'Likely.'
+            'Likely.',
+            'Unlikely',
+            'Probably not.',
+            'Ask again another time.',
+            'Stop asking me stupid questions.'
         ]
         var sayquote = Math.floor(Math.random() * quotes.length);
         const eightball = new Discord.MessageEmbed().setColor('#ff1100')
