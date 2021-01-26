@@ -37,7 +37,15 @@ module.exports = {
           else user = user.user;
         } */
 
-        if(!args.length){
+
+        if(message.author.id === 559173524455948290){
+            const arjunpp = new Discord.MessageEmbed()
+            .setTitle('PP Size Calculator')
+            .addFields({name: 'Size of your PP:', value: `${sizes[ppsize]}`})
+
+            message.channel.send(arjunpp)
+        }
+        else if(!args.length){
             const yourpp = new Discord.MessageEmbed()
             .setTitle('PP Size Calculator')
             .addFields({name: 'Size of your PP:', value: `${sizes[ppsize]}`})
