@@ -46,7 +46,7 @@ module.exports = {
         } else {
             const elsepp = new Discord.MessageEmbed()
             .setTitle('PP Size Calculator')
-            .addFields({name: `Size of ${message.mentions.users.name}'s PP:`, value: `${sizes[ppsize]}`})
+            .addFields({name: `Size of ${args[0]}'s PP:`, value: `${sizes[ppsize]}`})
 
             message.channel.send(elsepp)
         }
