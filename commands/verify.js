@@ -2,8 +2,15 @@ module.exports = {
     name: 'verify',
     description: 'Verifies new users.',
     async execute(message, args, Discord, client){
+        
 
-        //Set guild ID and verification channel ID
+        if(
+            message.author.guilds.c
+            ){
+
+            message.channel.send('stoopid, you are already verified!')
+        } else if(message.channel.type == 'dm'){
+            //Set guild ID and verification channel ID
         const verifychannel = client.channels.cache.get('796090442973970432');
         const guild = client.guilds.fetch('576618331105394720')
         .then(async guild => {
@@ -39,9 +46,6 @@ module.exports = {
                 message.react('✅')
                 message.react('⛔')
 
-                //member.setNickname(`${message.author.username} + (${msg.first().content})`)
-                //.then(console.log('Nickname Changed.'));
-
                 await message.react('✅')
                 const filter = (reaction, user) => {
                     return('test')
@@ -57,6 +61,9 @@ module.exports = {
                         console.log('SOMTHING DID SOMETHING')
                         message.channel.send('✅ | User Verified!')
                         memberTarget.roles.add(memberRole)
+                        memberTarget.setNickname(`${msg.first().content}`)
+                        .then(console.log('Nickname Changed.'))
+                        .catch();
                         reactCollector.stop()
                     }
                 })
@@ -68,6 +75,10 @@ module.exports = {
         }
 
     })
-    
+       } else {
+        message.channel.send('This is a DM only command!')
+       }
+
+
     }
 }

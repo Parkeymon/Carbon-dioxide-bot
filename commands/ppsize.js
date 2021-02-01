@@ -46,19 +46,18 @@ module.exports = {
             message.channel.send(arjunpp)
         }
         else if(args[0].toLowerCase() == 'arjun'){
-            const arjunpp = new Discord.MessageEmbed()
+            const arjunpp1 = new Discord.MessageEmbed()
             .setTitle('PP Size Calculator')
-            .addFields({name: 'Size of arjuns PP:', value: `8D`})
+            .addFields({name: `Size of arjun's PP:`, value: `8D`})
 
-            message.channel.send(arjunpp)
-        }
-
-        else if(!args.length){
+            message.channel.send(arjunpp1)
+        } else if(!args.length){
             const yourpp = new Discord.MessageEmbed()
             .setTitle('PP Size Calculator')
             .addFields({name: 'Size of your PP:', value: `${sizes[ppsize]}`})
 
             message.channel.send(yourpp)
+        
         } else {
             const elsepp = new Discord.MessageEmbed()
             .setTitle('PP Size Calculator')
