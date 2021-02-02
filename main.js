@@ -19,6 +19,8 @@ client.on('ready', () => {
     console.log('Bot online.');
 });
 
+
+
 //Join message
 client.on('guildMemberAdd', member => {
     member.send('Welcome! Before you can use and talk in the server, you must be verified.');
@@ -36,7 +38,9 @@ client.on('message', message => {
     const command = args.shift().trim().toLowerCase();
 
     try{
-    const handler = client.commands.get(command);
+    const handler = client.commands.get(command)
+        || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
+    if (!command) return;
     if(handler) handler.execute(message, args, Discord, client, prefix);
     }
     catch(error){

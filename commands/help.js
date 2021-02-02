@@ -1,27 +1,48 @@
-const { execute } = require("./mildracism");
+const { prefix } = require('../config.json');
 
 module.exports = {
     name: 'help',
     description: 'Gives users help',
-    async execute(message, args, Discord){
-        const helpEmbed = new Discord.MessageEmbed()
-        .setColor('#f50000')
-        .setTitle('Co2024 Bot Commands')
-        .setDescription('Help because you are stoopid.')
-        .addFields(
-            {name: 'ping', value: 'Ping the bot.', inline: true},
-            {name: 'mildracism', value: 'Responds with something mildly racist.', inline: true},
-            {name: 'members', value: 'Shows how many members in the server.', inline: true},
-            {name: 'pfpsteal <username>', value: 'Steals profile of given user.', inline: true},
-            {name: 'schoologysux', value: 'Fixes your schoology problems.', inline: true},
-            {name: 'politicalquote (WIP)', value: 'Sends a stupid political quote.', inline: true},
-            {name: 'ghostecho', value: 'Echos message send and then makes yours dissapear.', inline: true},
-            {name: '8ball <question>', value: 'Ask the magic 8 ball a question.', inline: true},
-            {name: 'invite', value: 'Gives you the server invite to invite other people.', inline: true},
-            {name: 'spellcheck', value: 'Tells the person to learn how to spell.', inline: true},
-            {name: 'poll <question>', value: 'Creates a poll.', inline: true},
-            {name: 'ppsize', value: 'How big is it?', inline: true}
-        )
-        message.channel.send(helpEmbed)
+    aliases: [
+        'commands'
+    ],
+    execute(message, args, Discord, prefix){
+        const data = [];
+        const { commands } = message.client;
+        
+        if (!args.length){
+            data.push('Here\'s a list of all the commands:');
+            data.push(commands.map(command => command.name).join(', '));
+            data.push(`\nYou can send \`${prefix}help <command name>\` to get info on a specific command!`);
+
+            return message.author.send(data, { split: true })
+	            .then(() => {
+		            if (message.channel.type === 'dm') return;
+		            message.reply('I\'ve sent you a DM with all my commands!');
+	            })
+	            .catch(error => {
+		            console.error(`Could not send help DM to ${message.author.tag}.\n`, error);
+		            message.reply('it seems like I can\'t DM you! Do you have DMs disabled?');
+	});
+}
+    const name = args[0].toLowerCase();
+    const command = commands.get(name) || commands.find(c => c.aliases && c.aliases.includes(name));
+
+    if (!command) {
+	    return message.reply('that\'s not a valid command!');
+}    
+    if (command.aliases) data.push(`**Aliases:** ${command.aliases.join(', ')}`);
+    if (command.description) data.push(`**Description:** ${command.description}`);
+    if (command.usage) data.push(`**Usage:** ${prefix}${command.name} ${command.usage}`);
+
+    data.push(`**Cooldown:** ${command.cooldown || 3} second(s)`);
+
+    const helpEmbed = new Discord.MessageEmbed()
+    .setColor('#ff0000')
+    .setTitle(`${command.name}`)
+    .setDescription(data, { split: true});
+
+    message.channel.send(helpEmbed)
+    //message.channel.send(data, { split: true });
     }
 }
