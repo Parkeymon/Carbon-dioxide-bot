@@ -1,21 +1,23 @@
-const { prefix } = require('../config.json');
-
 module.exports = {
     name: 'help',
     description: 'Gives users help',
     aliases: [
         'commands'
     ],
-    execute(message, args, Discord, prefix){
+    execute(message, args, Discord, client, prefix){
         const data = [];
         const { commands } = message.client;
         
         if (!args.length){
-            data.push('Here\'s a list of all the commands:');
             data.push(commands.map(command => command.name).join(', '));
             data.push(`\nYou can send \`${prefix}help <command name>\` to get info on a specific command!`);
 
-            return message.author.send(data, { split: true })
+            const helpEmbed = new Discord.MessageEmbed()
+            .setColor('#ff0000')
+            .setTitle('List of all Commands:')
+            .setDescription(data, { split: true })
+
+            return message.author.send(helpEmbed)
 	            .then(() => {
 		            if (message.channel.type === 'dm') return;
 		            message.reply('I\'ve sent you a DM with all my commands!');
@@ -37,12 +39,12 @@ module.exports = {
 
     data.push(`**Cooldown:** ${command.cooldown || 3} second(s)`);
 
-    const helpEmbed = new Discord.MessageEmbed()
+    const helpcmdEmbed = new Discord.MessageEmbed()
     .setColor('#ff0000')
     .setTitle(`${command.name}`)
     .setDescription(data, { split: true});
 
-    message.channel.send(helpEmbed)
+    message.channel.send(helpcmdEmbed)
     //message.channel.send(data, { split: true });
     }
 }
