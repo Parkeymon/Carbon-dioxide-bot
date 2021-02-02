@@ -19,8 +19,6 @@ client.on('ready', () => {
     console.log('Bot online.');
 });
 
-
-
 //Join message
 client.on('guildMemberAdd', member => {
     member.send('Welcome! Before you can use and talk in the server, you must be verified.');
@@ -29,6 +27,10 @@ client.on('guildMemberAdd', member => {
     .setDescription(`Please send \`$verify\` to the bots DMs`)
     member.send(welcomeEmbed)
 });
+
+//VC Renting.
+const vcRent = require("./vcrent")
+vcRent(client);
 
 //Command handler. I think? lmao
 client.on('message', message => {
