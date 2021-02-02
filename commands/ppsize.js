@@ -1,5 +1,9 @@
 module.exports = {
     name: 'ppsize',
+    description: 'very small',
+    aliases: [
+        'pp'
+    ],
     execute(message, args, Discord){
         var sizes = [
             '8D',
@@ -45,7 +49,7 @@ module.exports = {
 
             message.channel.send(arjunpp)
         }
-        else if(args[0].toLowerCase() == 'arjun'){
+        else if(args[0] == 'arjun'){
             const arjunpp1 = new Discord.MessageEmbed()
             .setTitle('PP Size Calculator')
             .addFields({name: `Size of arjun's PP:`, value: `8D`})
