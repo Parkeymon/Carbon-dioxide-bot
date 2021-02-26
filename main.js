@@ -56,8 +56,8 @@ client.on('message', message => {
 
     if(message.content.toLowerCase().includes('weezer')) {
         message.channel.send('Fucking weezer fan, what a degenerate.')
-    } else if(message.content.includes('green day')) {
-        message.channel.toLowerCase().send('Fucking green day fan, what a degenerate.')
+    } else if(message.content.toLowerCase().includes('green day')) {
+        message.channel.send('Fucking green day fan, what a degenerate.')
     } else if(message.content.toLowerCase().includes('radiohead')) {
         message.channel.send('Fucking radiohead fan, what a degenerate.')
     } else if(message.content.toLowerCase().includes('queen')) {
