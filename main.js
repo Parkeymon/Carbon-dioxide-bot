@@ -49,6 +49,10 @@ client.on('message', message => {
         console.error(error);
         message.channel.send('An error occured. Dont @ me.')
     }
+
+    if(message.content == 'weezer'){
+        message.channel.send('Fucking weezer fan')
+    }
 });
 
 client.login(config.BotToken);
