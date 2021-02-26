@@ -49,10 +49,20 @@ client.on('message', message => {
         console.error(error);
         message.channel.send('An error occured. Dont @ me.')
     }
+});
 
-    if(message.content == 'weezer'){
-        message.channel.send('Fucking weezer fan')
-    }
+client.on('message', message => {
+    if(message.author.bot) return;
+
+    if(message.content.toLowerCase().includes('weezer')) {
+        message.channel.send('Fucking weezer fan, what a degenerate.')
+    } else if(message.content.includes('green day')) {
+        message.channel.toLowerCase().send('Fucking green day fan, what a degenerate.')
+    } else if(message.content.toLowerCase().includes('radiohead')) {
+        message.channel.send('Fucking radiohead fan, what a degenerate.')
+    } else if(message.content.toLowerCase().includes('queen')) {
+        message.channel.send('Fucking queen fan, what a degenerate.')
+    } 
 });
 
 client.login(config.BotToken);
