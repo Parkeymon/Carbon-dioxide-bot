@@ -1,6 +1,6 @@
 module.exports = {
     name: 'help',
-    description: 'Gives users help',
+    description: 'you IDIOT, why are you asking for help with the help command???',
     aliases: [
         'commands'
     ],
