@@ -18,14 +18,15 @@ module.exports = {
         //Randomize
         var deaths = Math.floor(Math.random() * deathMethod.length);
 
-        //Make le embed
-        const deathEmbed = new Discord.MessageEmbed()
-        .setTitle(`You killed ${message.mentions.members.first().displayName}!`)
-        .setDescription(`${deathMethod[deaths]}`)
+        
 
         if(!message.mentions.members.first()){
             message.channel.send('You didnt mention anyone stoopid...');
         } else {
+            //Make le embed
+            const deathEmbed = new Discord.MessageEmbed()
+            .setTitle(`You killed ${message.mentions.members.first().displayName}!`)
+            .setDescription(`${deathMethod[deaths]}`)
             message.channel.send(deathEmbed);
         }
     }
