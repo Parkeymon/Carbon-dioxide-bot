@@ -52,7 +52,7 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-    if(message.author.bot) return;
+    if(message.content.startsWith(prefix) || message.author.bot) return;
 
     if(message.content.toLowerCase().includes('weezer')) {
         message.channel.send('Fucking weezer fan, what a degenerate.')
@@ -62,7 +62,9 @@ client.on('message', message => {
         message.channel.send('Fucking radiohead fan, what a degenerate.')
     } else if(message.content.toLowerCase().includes('queen')) {
         message.channel.send('Fucking queen fan, what a degenerate.')
-    } 
+    } else if(message.content.toLowerCase().includes('nickelback')) {
+        message.channel.send('Fucking nickelback fan, what a degenerate.')
+    }
 });
 
 client.login(config.BotToken);
