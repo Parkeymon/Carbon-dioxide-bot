@@ -20,7 +20,7 @@ module.exports = {
 
         //Make le embed
         const deathEmbed = new Discord.MessageEmbed()
-        .setTitle(`You killed ${message.mentions.members.first().nickname}!`)
+        .setTitle(`You killed ${message.mentions.members.first().displayName}!`)
         .setDescription(`${deathMethod[deaths]}`)
 
         if(!message.mentions.members.first()){
