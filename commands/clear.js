@@ -11,12 +11,10 @@ module.exports = {
 
             } else if(!isNaN(args[0])) {
 
-                message.channel.fetchMessages()
-                .then(function(list){
-                    message.channel.bulkDelete(args[0])
-                    message.channel.send(`Deleted \`${args[0]}\` messages.`)
+                message.channel.bulkDelete(args[0])
+                .then(messages => console.log(`Bulk deleted ${messages.size} messages`))
                 .catch(console.error);
-                });
+                message.channel.send(`Deleted \`${args[0]}\` messages.`);
 
             } else {
                 
