@@ -9,7 +9,7 @@ module.exports = {
             if(!args){
                 message.channel.send('IDIOT! You have to say how many messages to delete!')
 
-            } else if(isNaN(args[0])) {
+            } else if(!isNaN(args[0])) {
 
                 message.channel.fetchMessages()
                 .then(function(list){
