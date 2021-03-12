@@ -20,6 +20,8 @@ module.exports = {
                 
                 message.channel.send('IDIOT, Thats not a number!')
             }
+        } else {
+            message.channel.send('no perms to do that lol')
         }
     }
 }
