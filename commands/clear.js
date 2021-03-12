@@ -6,7 +6,7 @@ module.exports = {
     ],
     execute(message, args){
         if(message.member.hasPermission('MANAGE_MESSAGES')) {
-            if(!args){
+            if(!args.length){
                 message.channel.send('IDIOT! You have to say how many messages to delete!')
 
             } else if(!isNaN(args[0])) {
