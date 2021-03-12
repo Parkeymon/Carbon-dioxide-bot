@@ -1,3 +1,5 @@
+//This may or may not be stolen
+
 const config = require("./config");
 const jointocreatemap = new Map();
 module.exports = function (client) {
