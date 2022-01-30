@@ -1,4 +1,6 @@
 {
     "BotToken": "token",
-    "BotPrefix": "$"
+    "BotPrefix": "$",
+    "guildid": "1234",
+    "JOINTOCREATECHANNEL": "1234"
 }
