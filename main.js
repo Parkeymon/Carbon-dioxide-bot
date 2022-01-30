@@ -67,4 +67,6 @@ client.on('message', message => {
     }
 });
 
+module.exports = { client };
+
 client.login(config.BotToken);
