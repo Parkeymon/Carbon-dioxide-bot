@@ -113,13 +113,21 @@ module.exports = function (client) {
       //Room Names
 
       var rooms = [
-        'Gulag',
-        'Asylum',
-        'Torture Chamber',
-        'Onlyfans',
-        'CBT Area',
-        'Procrastinates',
-        'Gaming'
+          'Gulag',
+          'Asylum',
+          'Torture Chamber',
+          'Onlyfans',
+          'CBT Area',
+          'Procrastinates',
+          'Sex Dungeon',
+          'Coom Cave',
+          'Sex Room',
+          'Virginity',
+          'Gayness',
+          'Cock',
+          'Large Forehead',
+          'Sussy Baka',
+          'Cooch'
       ]
       var roomname = Math.floor(Math.random() * rooms.length);
 
