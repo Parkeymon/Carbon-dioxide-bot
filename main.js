@@ -67,6 +67,10 @@ client.on('message', message => {
     }
 });
 
-module.exports = { client };
+function setStatus(message){
+    client.user.setActivity(message, { type: 'PLAYING'});
+}
+
+module.exports = { setStatus };
 
 client.login(config.BotToken);
